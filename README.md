@@ -1,5 +1,5 @@
 # plex-localization-zh
-使用 plex-localization-zh 可以将 Plex 媒体库中的媒体信息进行中文本地化。它可以通过与 Plex 服务器进行交互，获取媒体库中的电影、电视节目、专辑和合集信息，将媒体标题的标题排序修改为媒体标题的拼音首字母缩写，并获取媒体的类型标签、风格标签和情绪标签等标签，将英文标签进行汉化。从而实现 Plex 媒体库的拼音排序、拼音搜索及类型标签汉化功能。
+使用 plex-localization-zh 可以将 Plex 媒体库中的媒体信息进行中文本地化。它可以通过与 Plex 服务器进行交互，获取媒体库中的电影、电视节目、专辑、艺术家和合集信息，将媒体的标题排序修改为媒体标题的拼音首字母缩写，并获取媒体的类型标签、风格标签和情绪标签等标签，将英文标签进行汉化。从而实现 Plex 媒体库的拼音排序、拼音搜索及类型标签汉化功能。
 
 ## 示例
 通过运行 plex-localization-zh，可以自动将媒体的标题排序修改为媒体标题的拼音首字母缩写，例如：
@@ -42,3 +42,49 @@
 
 ## 感谢
 此脚本的原作是 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn)，我在原作的修改版 [plexpy](https://github.com/anooki-c/plexpy) 的基础上增加了对合集标题的支持，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c) 贡献的代码。
+<br>
+<br>
+# plex-localization-zh
+plex-localization-zh is a script that allows you to localize media information in your Plex media library. It interacts with your Plex server to retrieve information about movies, TV shows, albums, artists, and collections. The script modifies the title sort of media to the initials of the Chinese pinyin of the title. It also translates metadata labels such as genre, style, and mood from English to Chinese. This provides features like Chinese pinyin sorting, searching, and Chinese labeling for your Plex media library.
+
+## Example
+By running plex-localization-zh, you can automatically change the title sort of media to the initials of the Chinese pinyin of the title, for example:
+```
+Change the title sort of a movie from "重庆森林" to "CQSL".
+Change the title sort of a TV show from "怪奇物语" to "GQWY".
+Change the artist sort of an artist from "王菲" to "WF".
+Change the title sort of a collection from "黑客帝国（系列）" to "HKDG(XL)".
+```
+Title sorting affects the order of display but doesn't impact the actual display of media in Chinese. When using title sorting, the media will be sorted based on the initials of the Chinese pinyin abbreviation, and you can also search using these initials, including fuzzy searching.
+
+By running plex-localization-zh, you can also automatically translate metadata labels from English to Chinese, for example:
+```
+Translate the genre of a movie from "Action" to "动作".
+Translate the genre of a TV show from "Comedy" to "喜剧".
+Translate the mood of an album from "Sad" to "悲伤".
+Translate the style of an artist from "Pop" to "流行".
+```
+The script has preset some commonly used tag translations in Chinese and English, mainly film and television types. If there are other tags that need to be localized into Chinese, you can add Chinese-English translations in the script yourself.
+
+## Requirements
+- Installed Python 3.0 or higher.
+- Installed required third-party libraries: requests, pypinyin. (You can install them using the command `pip3 install requests pypinyin`)
+
+## Usage
+1. Clone or download the repository to a directory on your computer.
+2. Modify the path in `start.command (Mac)` or `start.bat (Win)` to point to the directory where you store the `plex-localization-zh.py` script.
+3. Double-click `start.command` or `start.bat` to execute the `plex-localization-zh.py` script.
+4. On the first run, you will need to input your Plex server address and [X-Plex-Token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/) in the console. This information will be saved in the `config.ini` file in the same directory for future use.
+5. The script will connect to your Plex server and automatically traverse all media libraries. It will change the title sort of Chinese titles to the initials of the Chinese pinyin of the title and translate metadata labels to Chinese based on predefined translations.
+6. During the process, the script will print out the changed metadata, and you can view this information in the console.
+
+## Notes
+- Ensure you provide the correct Plex server address and the correct [X-Plex-Token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/).
+- If the script cannot connect to the Plex server, check your network connection and make sure the server is accessible.
+- Run the script using the X-Plex-Token of a server administrator account to ensure you have sufficient permissions on the Plex server.
+
+## Known Issues
+Some pure digital or pure English media titles will be updated repeatedly every time you run a script.
+
+## Credits
+This script is based on the original work of [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn). I added support for collection titles based on [plexpy](https://github.com/anooki-c/plexpy). Thanks to contributions from [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c).
