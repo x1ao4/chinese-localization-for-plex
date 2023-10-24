@@ -1,5 +1,5 @@
 # plex-localization-zh
-使用 plex-localization-zh 可以将 Plex 媒体库中的媒体信息进行中文本地化。它可以通过与 Plex 服务器进行交互，获取媒体库中的电影、电视节目、专辑、艺术家和合集信息，将媒体的标题排序修改为媒体标题的拼音首字母缩写，并获取媒体的类型标签、风格标签和情绪标签等标签，将英文标签进行汉化。从而实现 Plex 媒体库的拼音排序、拼音搜索及类型标签汉化功能。
+使用 plex-localization-zh 可以将 Plex 媒体库中的媒体信息进行中文本地化。它可以通过与 Plex 服务器进行交互，获取媒体库中的电影、电视节目、艺术家、专辑、音轨和合集信息，将媒体的标题排序修改为媒体标题的拼音首字母缩写，并获取媒体的类型标签、风格标签和情绪标签等标签，将英文标签进行汉化。从而实现 Plex 媒体库的拼音排序、拼音搜索及类型标签汉化功能。
 
 ## 示例
 通过运行 plex-localization-zh，可以自动将媒体的标题排序修改为媒体标题的拼音首字母缩写，例如：
@@ -42,7 +42,7 @@
 <br>
 <br>
 # plex-localization-zh
-plex-localization-zh is a script that allows you to localize media information in your Plex media library. It interacts with your Plex server to retrieve information about movies, TV shows, albums, artists, and collections. The script modifies the title sort of media to the initials of the Chinese pinyin of the title. It also translates metadata labels such as genre, style, and mood from English to Chinese. This provides features like Chinese pinyin sorting, searching, and Chinese labeling for your Plex media library.
+plex-localization-zh is a script that allows you to localize media information in your Plex media library. It interacts with your Plex server to retrieve information about movies, TV shows, artists, albums, tracks, and collections. The script modifies the title sort of media to the initials of the Chinese pinyin of the title. It also translates metadata labels such as genre, style, and mood from English to Chinese. This provides features like Chinese pinyin sorting, searching, and Chinese labeling for your Plex media library.
 
 ## Example
 By running plex-localization-zh, you can automatically change the title sort of media to the initials of the Chinese pinyin of the title, for example:
