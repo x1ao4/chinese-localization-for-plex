@@ -7,7 +7,7 @@
 将电影的标题排序从 "重庆森林" 变更为 "CQSL"。
 将电视节目的标题排序从 "怪奇物语" 变更为 "GQWY"。
 将艺术家的艺术家排序从 "王菲" 变更为 "WF"。
-将合集的标题排序从 "黑客帝国（系列）" 变更为 "HKDG(XL)"。
+将合集的标题排序从 "黑客帝国（系列）" 变更为 "HKDGXL"。
 ```
 标题排序只影响排列顺序，不影响显示效果，媒体在 Plex 中依然会以中文标题进行显示，但是在使用标题排序时会根据拼音首字母缩写进行排序，并且可以通过拼音首字母缩写进行搜索，包括模糊搜索。
 
@@ -50,7 +50,7 @@ By running plex-localization-zh, you can automatically change the title sort of 
 Change the title sort of a movie from "重庆森林" to "CQSL".
 Change the title sort of a TV show from "怪奇物语" to "GQWY".
 Change the artist sort of an artist from "王菲" to "WF".
-Change the title sort of a collection from "黑客帝国（系列）" to "HKDG(XL)".
+Change the title sort of a collection from "黑客帝国（系列）" to "HKDGXL".
 ```
 Title sorting affects the order of display but doesn't impact the actual display of media in Chinese. When using title sorting, the media will be sorted based on the initials of the Chinese pinyin abbreviation, and you can also search using these initials, including fuzzy searching.
 
