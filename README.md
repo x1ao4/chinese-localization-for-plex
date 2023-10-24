@@ -42,7 +42,7 @@
 <br>
 <br>
 # plex-localization-zh
-plex-localization-zh is a script that allows you to localize media information in your Plex media library. It interacts with your Plex server to retrieve information about movies, TV shows, artists, albums, tracks, and collections. The script modifies the title sort of media to the initials of the Chinese pinyin of the title. It also translates metadata labels such as genre, style, and mood from English to Chinese. This provides features like Chinese pinyin sorting, searching, and Chinese labeling for your Plex media library.
+plex-localization-zh is a script that allows you to localize media information in your Plex media library. It interacts with your Plex server to retrieve information about movies, TV shows, artists, albums, tracks and collections. The script modifies the title sort of media to the initials of the Chinese pinyin of the title. It also translates metadata labels such as genre, style, and mood from English to Chinese. This provides features like Chinese pinyin sorting, searching, and Chinese labeling for your Plex media library.
 
 ## Example
 By running plex-localization-zh, you can automatically change the title sort of media to the initials of the Chinese pinyin of the title, for example:
