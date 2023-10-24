@@ -37,9 +37,6 @@
 - 如果脚本无法连接到 Plex 服务器，请检查您的网络连接，并确保服务器可以访问。
 - 请使用服务器管理员账号的 X-Plex-Token 运行脚本，以确保您对 Plex 服务器具有足够的权限。
 
-## 已知问题
-部分纯数字或纯英文的媒体标题会在每次运行脚本时被重复更新。
-
 ## 感谢
 此脚本的原作是 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn)，我在原作的修改版 [plexpy](https://github.com/anooki-c/plexpy) 的基础上增加了对合集标题的支持，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c) 贡献的代码。
 <br>
@@ -82,9 +79,6 @@ The script has preset some commonly used tag translations in Chinese and English
 - Ensure you provide the correct Plex server address and the correct [X-Plex-Token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/).
 - If the script cannot connect to the Plex server, check your network connection and make sure the server is accessible.
 - Run the script using the X-Plex-Token of a server administrator account to ensure you have sufficient permissions on the Plex server.
-
-## Known Issues
-Some pure digital or pure English media titles will be updated repeatedly every time you run a script.
 
 ## Credits
 This script is based on the original work of [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn). I added support for collection titles based on [plexpy](https://github.com/anooki-c/plexpy). Thanks to contributions from [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c).
