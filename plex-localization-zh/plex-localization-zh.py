@@ -6,6 +6,8 @@ import requests
 from pathlib import Path
 import concurrent.futures
 
+# 版本 1.0
+
 TAGS = {
     "Anime": "动画",
     "Action": "动作",
@@ -197,6 +199,8 @@ class PlexServer:
         if TAGS.get(tag):  
             # 获取当前的所有标签
             current_tags = [genre.get("tag") for genre in self.get_metadata(rating_key).get('Genre', {})]
+            # 移除原有的英文标签
+            current_tags = [current_tag for current_tag in current_tags if current_tag != tag]
             # 创建一个新的参数列表
             params = {
                 "type": select[1],
@@ -204,16 +208,18 @@ class PlexServer:
                 "genre.locked": 1,
             }
             # 添加新的标签
-            params.update({f"genre[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags) if current_tag != tag})
-            params["genre[0].tag.tag"] = addtag
+            params.update({f"genre[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags)})
+            params[f"genre[{len(current_tags)}].tag.tag"] = addtag
             res = self.s.put(url=f"{self.host}/library/metadata/{rating_key}", params=params).text
             return res
-    
+
     def put_styles(self, select, rating_key, tag, addtag):
         """变更风格标签。"""
         if TAGS.get(tag):  
             # 获取当前的所有标签
             current_tags = [style.get("tag") for style in self.get_metadata(rating_key).get('Style', {})]
+            # 移除原有的英文标签
+            current_tags = [current_tag for current_tag in current_tags if current_tag != tag]
             # 创建一个新的参数列表
             params = {
                 "type": select[1],
@@ -221,16 +227,18 @@ class PlexServer:
                 "style.locked": 1,
             }
             # 添加新的标签
-            params.update({f"style[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags) if current_tag != tag})
-            params["style[0].tag.tag"] = addtag
+            params.update({f"style[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags)})
+            params[f"style[{len(current_tags)}].tag.tag"] = addtag
             res = self.s.put(url=f"{self.host}/library/metadata/{rating_key}", params=params).text
             return res
-    
+
     def put_mood(self, select, rating_key, tag, addtag):
         """变更情绪标签。"""
         if TAGS.get(tag):  
             # 获取当前的所有标签
             current_tags = [mood.get("tag") for mood in self.get_metadata(rating_key).get('Mood', {})]
+            # 移除原有的英文标签
+            current_tags = [current_tag for current_tag in current_tags if current_tag != tag]
             # 创建一个新的参数列表
             params = {
                 "type": select[1],
@@ -238,8 +246,8 @@ class PlexServer:
                 "mood.locked": 1,
             }
             # 添加新的标签
-            params.update({f"mood[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags) if current_tag != tag})
-            params["mood[0].tag.tag"] = addtag
+            params.update({f"mood[{i}].tag.tag": current_tag for i, current_tag in enumerate(current_tags)})
+            params[f"mood[{len(current_tags)}].tag.tag"] = addtag
             res = self.s.put(url=f"{self.host}/library/metadata/{rating_key}", params=params).text
             return res
 
