@@ -93,6 +93,7 @@ class PlexServer:
             cfg.read(config_file)
             self.host = dict(cfg.items("server"))["host"]
             self.token = dict(cfg.items("server"))["token"]
+            self.skip = dict(cfg.items("server"))["skip"]
             print(f"已成功连接到服务器: {self.login()}\n")
         except Exception as error:
             print(error)
@@ -101,15 +102,21 @@ class PlexServer:
             if self.host[-1] == "/":
                 self.host = self.host[:-1]
             self.token = input('请输入您的 X-Plex-Token: ')
+            self.skip = input('请输入您想跳过的库，用英文,分隔(如果没有需要跳过的库，直接回车即可): ')
+            if self.skip:
+                self.skip = self.skip.strip()
+                self.skip = self.skip.strip(',')
             try:
                 cfg.add_section("server")
                 cfg.set("server", "host", self.host)
                 cfg.set("server", "token", self.token)
+                cfg.set("server", "skip", self.skip)
                 with open(config_file, 'w') as f:
                     cfg.write(f)
                 print(f"\n配置文件已写入 {config_file}\n")
                 self.host = self.host
                 self.token = self.token
+                self.skip = self.skip
                 print(f"已成功连接到服务器: {self.login()}\n")
 
             except Exception as error:
@@ -146,14 +153,17 @@ class PlexServer:
         data = self.s.get(
             url=f"{self.host}/library/sections/"
         ).json().get("MediaContainer", {}).get("Directory", [])
-    
-        libraries = [[int(x['key']), TYPE[x['type']], x['title']] for x in data]
+
+        skip_list = []
+        if self.skip:
+            skip_list = self.skip.split(',')
+        libraries = [[int(x['key']), TYPE[x['type']], x['title']] for x in data if x['title'] not in skip_list]
         return libraries
 
     def list_media_keys(self, select):
         response = self.s.get(url=f'{self.host}/library/sections/{select[0]}/all?type={select[1]}').json()
         datas = response.get("MediaContainer", {}).get("Metadata", [])
-    
+
         if not datas:
             if select[1] == 8:  # 如果是艺术家（歌手）
                 print("歌手数: 0")
@@ -164,9 +174,9 @@ class PlexServer:
             else:
                 print("媒体数: 0")
             return []
-    
+
         media_keys = [data["ratingKey"] for data in datas]
-    
+
         if select[1] == 8:  # 如果是艺术家（歌手）
             print(f"歌手数: {len(media_keys)}")
         elif select[1] == 9:  # 如果是专辑
@@ -175,7 +185,7 @@ class PlexServer:
             print(f"音轨数: {len(media_keys)}")
         else:
             print(f"媒体数: {len(media_keys)}")
-    
+
         return media_keys
 
     def get_metadata(self, rating_key):
@@ -196,7 +206,7 @@ class PlexServer:
 
     def put_genres(self, select, rating_key, tag, addtag):
         """变更流派标签。"""
-        if TAGS.get(tag):  
+        if TAGS.get(tag):
             # 获取当前的所有标签
             current_tags = [genre.get("tag") for genre in self.get_metadata(rating_key).get('Genre', {})]
             # 移除原有的英文标签
@@ -215,7 +225,7 @@ class PlexServer:
 
     def put_styles(self, select, rating_key, tag, addtag):
         """变更风格标签。"""
-        if TAGS.get(tag):  
+        if TAGS.get(tag):
             # 获取当前的所有标签
             current_tags = [style.get("tag") for style in self.get_metadata(rating_key).get('Style', {})]
             # 移除原有的英文标签
@@ -234,7 +244,7 @@ class PlexServer:
 
     def put_mood(self, select, rating_key, tag, addtag):
         """变更情绪标签。"""
-        if TAGS.get(tag):  
+        if TAGS.get(tag):
             # 获取当前的所有标签
             current_tags = [mood.get("tag") for mood in self.get_metadata(rating_key).get('Mood', {})]
             # 移除原有的英文标签
@@ -289,27 +299,27 @@ class PlexServer:
         genres = [genre.get("tag") for genre in metadata.get('Genre', {})]
         styles = [style.get("tag") for style in metadata.get('Style', {})]
         moods = [mood.get("tag") for mood in metadata.get('Mood', {})]
-    
+
         if not is_english(title) and (has_chinese(title_sort) or title_sort == ""):
             title_sort = convert_to_pinyin(title)
             self.put_title_sort(select, rating_key, title_sort, 1)
             print(f"{title} → {title_sort}")
-    
+
         for genre in genres:
             if new_genre := TAGS.get(genre):
                 self.put_genres(select, rating_key, genre, new_genre)
                 print(f"{title}: {genre} → {new_genre}")
-    
+
         for style in styles:
             if new_style := TAGS.get(style):
                 self.put_styles(select, rating_key, style, new_style)
                 print(f"{title}: {style} → {new_style}")
-    
+
         for mood in moods:
             if new_mood := TAGS.get(mood):
                 self.put_mood(select, rating_key, mood, new_mood)
                 print(f"{title}: {mood} → {new_mood}")
-    
+
     def process_album(self, args):
         select, rating_key = args
         metadata = self.get_metadata(rating_key)
@@ -318,39 +328,39 @@ class PlexServer:
         genres = [genre.get("tag") for genre in metadata.get('Genre', {})]
         styles = [style.get("tag") for style in metadata.get('Style', {})]
         moods = [mood.get("tag") for mood in metadata.get('Mood', {})]
-    
+
         if not is_english(title) and (has_chinese(title_sort) or title_sort == ""):
             title_sort = convert_to_pinyin(title)
             self.put_title_sort(select, rating_key, title_sort, 1)
             print(f"{title} → {title_sort}")
-    
+
         for genre in genres:
             if new_genre := TAGS.get(genre):
                 self.put_genres(select, rating_key, genre, new_genre)
                 print(f"{title}: {genre} → {new_genre}")
-    
+
         for style in styles:
             if new_style := TAGS.get(style):
                 self.put_styles(select, rating_key, style, new_style)
                 print(f"{title}: {style} → {new_style}")
-    
+
         for mood in moods:
             if new_mood := TAGS.get(mood):
                 self.put_mood(select, rating_key, mood, new_mood)
                 print(f"{title}: {mood} → {new_mood}")
-    
+
     def process_track(self, args):
         select, rating_key = args
         metadata = self.get_metadata(rating_key)
         title = metadata["title"]
         title_sort = metadata.get("titleSort", "")
         moods = [mood.get("tag") for mood in metadata.get('Mood', {})]
-    
+
         if not is_english(title) and (has_chinese(title_sort) or title_sort == ""):
             title_sort = convert_to_pinyin(title)
             self.put_title_sort(select, rating_key, title_sort, 1)
             print(f"{title} → {title_sort}")
-    
+
         for mood in moods:
             if new_mood := TAGS.get(mood):
                 self.put_mood(select, rating_key, mood, new_mood)
@@ -358,34 +368,34 @@ class PlexServer:
 
     def loop_all(self):
         library_list = self.list_library()
-    
+
         for ll in library_list:
             if ll[1] != 99:
                 select = ll[:2]
                 print(f"处理库: {ll[2]}")
                 if ll[1] == 8:  # 如果是音乐库
-    
+
                     # 处理艺术家（歌手）
                     artist_keys = self.list_media_keys([select[0], 8])
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_artist, [(select, key) for key in artist_keys])
-    
+
                     # 处理专辑
                     album_keys = self.list_media_keys([select[0], 9])
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_album, [(select, key) for key in album_keys])
-    
+
                     # 处理音轨
                     track_keys = self.list_media_keys([select[0], 10])
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_track, [(select, key) for key in track_keys])
-    
+
                 else:
                     media_keys = self.list_media_keys(select)
-    
+
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_media, [(select, key) for key in media_keys])
-    
+
                 print()
 
     def put_collection_title_sort(self, select, rating_key, sort_title, lock):
