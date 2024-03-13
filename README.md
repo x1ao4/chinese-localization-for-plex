@@ -22,7 +22,7 @@
 
 ## 运行条件
 - 安装了 Python 3.0 或更高版本。
-- 安装了必要的第三方库：requests、pypinyin。（可以通过命令 `pip3 install requests pypinyin` 安装）
+- 安装了必要的第三方库：requests、pypinyin。（可以通过 `pip3 install requests pypinyin` 安装）
 
 ## 使用方法
 1. 将仓库克隆或下载到计算机上的一个目录中。
@@ -65,7 +65,7 @@ The script has preset some commonly used tag translations in Chinese and English
 
 ## Requirements
 - Installed Python 3.0 or higher.
-- Installed required third-party libraries: requests, pypinyin. (install with `pip3 install requests pypinyin`)
+- Installed required third-party libraries: requests, pypinyin. (Install with `pip3 install requests pypinyin`)
 
 ## Usage
 1. Clone or download the repository to a directory on your computer.
