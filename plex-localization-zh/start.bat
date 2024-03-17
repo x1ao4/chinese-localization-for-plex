@@ -2,6 +2,6 @@
 
 cd C:\path\to\plex-localization-zh
 
-python plex-localization-zh.py
+python3 plex-localization-zh.py
 
 pause
