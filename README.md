@@ -50,7 +50,7 @@ skip_libraries = 云电影；云电视剧；演唱会
 - 请使用服务器管理员账号的 X-Plex-Token 运行脚本，以确保你对 Plex 服务器具有足够的权限。
 
 ## 感谢
-此脚本的原作是 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn)，我在原作的修改版 [plexpy](https://github.com/anooki-c/plexpy) 的基础上增加了对合集标题的支持，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c) 贡献的代码。
+此脚本的原作是 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn)，我在原作的修改版 [plexpy](https://github.com/anooki-c/plexpy) 的基础上增加了对合集标题的支持（及其他更新），感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c) 贡献的代码。
 <br>
 <br>
 # plex-localization-zh
@@ -105,4 +105,4 @@ skip_libraries = 云电影；云电视剧；演唱会
 - Run the script using the X-Plex-Token of a server administrator account to ensure you have sufficient permissions on the Plex server.
 
 ## Credits
-This script is based on the original work of [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn). I added support for collection titles based on [plexpy](https://github.com/anooki-c/plexpy). Thanks to contributions from [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c).
+This script is based on the original work of [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn). I added support for collection titles (and other updates) based on [plexpy](https://github.com/anooki-c/plexpy). Thanks to contributions from [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx)、[anooki-c](https://github.com/anooki-c).
