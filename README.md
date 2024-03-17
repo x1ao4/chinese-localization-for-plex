@@ -45,6 +45,7 @@ skip_libraries = 云电影；云电视剧；演唱会
 
 ## 注意事项
 - 请确保你提供了正确的 Plex 服务器地址和正确的 X-Plex-Token。
+- 请确保你提供了正确的库名，并按要求进行了填写。
 - 如果脚本无法连接到 Plex 服务器，请检查你的网络连接，并确保服务器可以访问。
 - 请使用服务器管理员账号的 X-Plex-Token 运行脚本，以确保你对 Plex 服务器具有足够的权限。
 
@@ -98,7 +99,8 @@ skip_libraries = 云电影；云电视剧；演唱会
 6. The script will connect to your Plex server and automatically traverse all (specified) media libraries, modify the title sorting of Chinese titles to the acronym of the media title’s pinyin, translate the metadata tags into Chinese according to the predefined tag mapping, and display the information and processing results of the media library on the console.
 
 ## Notes
-- Ensure you provide the correct Plex server address and the correct X-Plex-Token.
+- Make sure you've provided the correct Plex server address and the correct X-Plex-Token.
+- Make sure you've provided the correct library names and fill in according to the requirements.
 - If the script cannot connect to the Plex server, check your network connection and make sure the server is accessible.
 - Run the script using the X-Plex-Token of a server administrator account to ensure you have sufficient permissions on the Plex server.
 
