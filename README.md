@@ -86,7 +86,7 @@ Before running the script, please open the configuration file `config.ini` and c
 address = http://127.0.0.1:32400
 # Token of the Plex server for authentication
 token = xxxxxxxxxxxxxxxxxxxx
-# Specify the libraries to skip, in the format Library1; Library2; Library3. If not set, all libraries will be processed by default
+# Specify the libraries to skip, in the format Library1；Library2；Library3, if not set, all libraries will be processed by default
 skip_libraries = 云电影；云电视剧；演唱会
 ```
 
