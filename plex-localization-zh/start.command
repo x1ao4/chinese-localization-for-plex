@@ -1,5 +1,3 @@
 #!/bin/bash
 
-cd /path/to/plex-localization-zh
-
-python3 plex-localization-zh.py
+python3 /path/to/plex-localization-zh.py
