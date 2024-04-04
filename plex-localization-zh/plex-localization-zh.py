@@ -43,7 +43,7 @@ TAGS = {
     "Film-Noir": "黑色",
     "Food": "饮食",
     "War & Politics": "战争与政治",
-    "Sci-Fi & Fantasy": "科幻",
+    "Sci-Fi & Fantasy": "科幻与奇幻",
     "Mini-Series": "迷你剧",
     "Reality": "真人秀",
     "Home and Garden": "家居与园艺",
