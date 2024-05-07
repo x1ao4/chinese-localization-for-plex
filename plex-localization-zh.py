@@ -297,13 +297,19 @@ class PlexServer:
         metadata = self.get_metadata(rating_key)
         title = metadata["title"]
         title_sort = metadata.get("titleSort", "")
+        genres = [genre.get("tag") for genre in metadata.get('Genre', {})]
         moods = [mood.get("tag") for mood in metadata.get('Mood', {})]
-    
+
         if not is_english(title) and (has_chinese(title_sort) or title_sort == ""):
             title_sort = convert_to_pinyin(title)
             self.put_title_sort(select, rating_key, title_sort, 1)
             logger.info(f"{title} → {title_sort}")
-    
+
+        for genre in genres:
+            if new_genre := TAGS.get(genre):
+                self.put_genres(select, rating_key, genre, new_genre)
+                logger.info(f"{title}：{genre} → {new_genre}")
+
         for mood in moods:
             if new_mood := TAGS.get(mood):
                 self.put_mood(select, rating_key, mood, new_mood)
