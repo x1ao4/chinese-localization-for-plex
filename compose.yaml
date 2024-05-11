@@ -1,0 +1,36 @@
+version: "2"
+services:
+  plz-scheduler:
+    image: mcuadros/ofelia:latest
+    container_name: plz-scheduler
+    depends_on:
+      - plz-all
+    command: daemon --docker -f label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}
+    labels:
+      ofelia.job-run.plz-all.schedule: 0 30 22 * * *
+      ofelia.job-run.plz-all.container: plz-all
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+  plz-all:
+    image: x1ao4/plex-localization-zh:latest
+    container_name: plz-all
+    command: python plex-localization-zh.py --all
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /自定义目录/plex-localization-zh/config:/app/config
+  plz-new:
+    image: x1ao4/plex-localization-zh:latest
+    container_name: plz-new
+    command: python plex-localization-zh.py --new
+    ports:
+      - 8088:8088
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /自定义目录/plex-localization-zh/config:/app/config
+    restart: unless-stopped
+networks: {}
