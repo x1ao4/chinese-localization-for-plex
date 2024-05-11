@@ -73,7 +73,8 @@ class PlexServer:
         self.host = dict(cfg.items("server"))["address"]
         self.token = dict(cfg.items("server"))["token"]
         self.skip_libraries = dict(cfg.items("server"))["skip_libraries"].split('；')
-        print_with_timestamp(f"已成功连接到服务器：{self.login()}\n")
+        print_with_timestamp(f"已成功连接到服务器：{self.login()}")
+        logger.info("")
 
     # 登录到 Plex 服务器
     def login(self):
