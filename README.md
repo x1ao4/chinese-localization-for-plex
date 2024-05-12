@@ -145,7 +145,7 @@ skip_libraries = 云电影；云电视剧；演唱会
 #### 使用方法
 1. 在 Plex 服务器的设置选项中找到 `Webhooks`，点击 `添加 Webhook`，填写你的 Flask 服务器地址 `http://Docker 所在设备的 IP 地址:8088` 并 `保存修改`。（非 Plex Pass 订阅用户无需填写）
 2. 下载仓库中的 `compose.yaml` 文件（非 Plex Pass 订阅用户可删除 `plz-new` 的部分），将其保存在一个名为 `plex-localization-zh` 的文件夹内。
-3. 用记事本或文本编辑打开这个文件，将 `/自定义目录/plex-localization-zh/config` 替换为宿主机上的一个目录，这个目录将用于保存配置文件。（两个 `自定义目录` 处使用相同的目录即可）
+3. 用记事本或文本编辑打开 `compose.yaml`，将 `/自定义目录/plex-localization-zh/config` 替换为宿主机上的一个目录，这个目录将用于保存配置文件。（两个 `自定义目录` 处使用相同的目录即可）
 4. 打开终端或命令行工具，使用 `cd` 命令切换到 `compose.yaml` 所在的目录。
 5. 使用命令 `docker-compose up -d` 部署并启动 plex-localization-zh 堆栈。
 6. 用记事本或文本编辑打开 `/自定义目录/plex-localization-zh/config/config.ini` 文件，填写你的 Plex 服务器地址（`address`）和 [X-Plex-Token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)（`token`），按照需要选填其他配置选项。
