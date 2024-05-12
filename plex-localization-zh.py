@@ -34,7 +34,7 @@ with open(tags_file, 'r', encoding='utf-8') as f:
     TAGS = json.load(f)
 
 # 定义类型映射
-TYPE = {"movie": 1, "show": 2, "artist": 8, "album": 9, "track": 10, "photo":99}
+TYPE = {"movie": 1, "show": 2, "artist": 8, "album": 9, "track": 10, "photo": 99}
 
 # 检查字符串是否包含中文字符
 def has_chinese(string):
@@ -60,7 +60,7 @@ def is_english(s):
 def convert_to_pinyin(text):
     str_a = pypinyin.pinyin(text, style=pypinyin.FIRST_LETTER)
     str_b = [str(str_a[i][0]).upper() for i in range(len(str_a))]
-    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "")
+    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "").replace("《", "").replace("》", "").replace("〈", "").replace("〉", "")
 
 # 定义 PlexServer 类
 class PlexServer:
@@ -412,6 +412,11 @@ class PlexServer:
         # 从元数据中提取必要的信息
         rating_key = metadata['ratingKey']
         library_section_id = metadata['librarySectionID']
+        media_type = metadata['type']
+
+        # 如果项目类型是 episode 则跳过该项目
+        if media_type == 'episode':
+            return
 
         # 获取此项目所在库的类型和标题
         library = next((lib for lib in self.list_library() if lib[0] == library_section_id), None)
