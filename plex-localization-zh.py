@@ -60,7 +60,7 @@ def is_english(s):
 def convert_to_pinyin(text):
     str_a = pypinyin.pinyin(text, style=pypinyin.FIRST_LETTER)
     str_b = [str(str_a[i][0]).upper() for i in range(len(str_a))]
-    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "")
+    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "")
 
 # 定义 PlexServer 类
 class PlexServer:
