@@ -13,7 +13,7 @@
 
 ![标题排序](https://github.com/x1ao4/plex-localization-zh/assets/112841659/6831658a-1a89-4e4b-b360-cf4192f96497)
 
-通过 plex-localization-zh 还可以自动将项目的标签从英文翻译为中文，例如：
+通过 plex-localization-zh 还可以自动将项目的标签从英文转换为中文，例如：
 ```
 将电影的类型从 “Action” 变更为 “动作”
 将电视节目的类型从 “Comedy” 变更为 “喜剧”
