@@ -217,3 +217,8 @@ PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快�
 
 ## 感谢
 本工具参考 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn) 和 [plexpy](https://github.com/anooki-c/plexpy) 对代码进行了重构、更新和完善，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx) 和 [anooki-c](https://github.com/anooki-c) 贡献代码。
+
+## 赞赏
+如果你觉得这个项目对你有用，可以请我喝杯咖啡。如果你喜欢这个项目，可以给我一个⭐️。谢谢你的支持！
+
+<img width="255" alt="赞赏" src="https://github.com/x1ao4/plex-localization-zh/assets/112841659/0f23ab86-6b14-408f-8d85-3f8a230aa763">
