@@ -221,4 +221,4 @@ PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快�
 ## 赞赏
 如果你觉得这个项目对你有用，可以请我喝杯咖啡。如果你喜欢这个项目，可以给我一个⭐️。谢谢你的支持！
 
-<img width="255" alt="赞赏" src="https://github.com/x1ao4/plex-localization-zh/assets/112841659/63ea47c9-bb7d-42ce-b70d-532c904c2994">
+<img width="255" alt="赞赏" src="https://github.com/x1ao4/plex-localization-zh/assets/112841659/aac22638-0fb7-43d5-9e6e-5e010e7ed1c8">
