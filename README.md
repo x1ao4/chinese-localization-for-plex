@@ -214,6 +214,7 @@ PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快�
 - 请确保你提供了正确的库名，并按要求进行了填写。
 - 如果脚本无法连接到 Plex 服务器，请检查你的网络连接，并确保服务器可以访问。
 - 请使用服务器管理员账号的 X-Plex-Token 运行脚本，以确保你拥有有足够的权限进行操作。
+- 所有被处理的字段将在变更后被锁定，以防止在刷新元数据时被重置。若有修改需求，可以手动解锁对应的字段，然后进行修改。
 
 ## 感谢
 本工具参考 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn) 和 [plexpy](https://github.com/anooki-c/plexpy) 对代码进行了重构、更新和完善，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx) 和 [anooki-c](https://github.com/anooki-c) 贡献代码。
