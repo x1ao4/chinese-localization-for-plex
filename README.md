@@ -207,7 +207,7 @@ PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快�
   
   通过自带的任务计划功能将 `处理新增项目` 设置为开机启动任务（触发的任务）。添加任务后在 `任务设置 - 运行命令 - 用户自定义脚本` 中输入 `sleep 10 && python3 /path/to/plex-localization-zh.py --new`，这样脚本会在 Nas 启动 10 秒后再运行，延迟 10 秒是为了保证 Plex 服务器比脚本先启动，否则脚本将无法连接到 Plex 服务器。（请把 `/path/to/plex-localization-zh.py` 替换为脚本的实际路径）
 
-若设置为定时或开机任务后脚本运行失败，你可能需要将 command 脚本或用户自定义脚本中的 `python3` 替换为 `python3` 的实际路径，你可以在 Mac 终端或 Nas SSH 内通过命令 `which python3` 找到 `python3` 的实际路径。
+若设置为定时或开机任务后脚本运行失败，你可能需要将 command 脚本或用户自定义脚本中的 `python3` 替换为 `python3` 的实际路径。你可以在 Mac 终端或 Nas 的 SSH 内通过命令 `which python3` 找到 `python3` 的实际路径。
 
 ## 注意事项
 - 请确保你提供了正确的 Plex 服务器地址和正确的 X-Plex-Token。
