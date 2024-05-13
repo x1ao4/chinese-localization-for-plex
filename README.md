@@ -180,7 +180,7 @@ PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快�
 请在首次运行前将快速启动脚本中的 `D:\path\to\plex-localization-zh.py` 或 `/path/to/plex-localization-zh.py` 替换为 `plex-localization-zh.py` 脚本的实际路径。
 
 #### 自动运行
-为了便于使用，你也可以使用 crontab 或其他任务工具，为 plex-localization-zh 添加定时或开机任务，实现自动运行。
+为了便于使用，你也可以通过 crontab 或其他任务工具，为 plex-localization-zh 添加定时或开机任务，实现自动运行。
 
 - 处理所有项目（Mac）
   
