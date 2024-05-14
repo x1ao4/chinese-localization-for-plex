@@ -60,7 +60,7 @@ def is_english(s):
 def convert_to_pinyin(text):
     str_a = pypinyin.pinyin(text, style=pypinyin.FIRST_LETTER)
     str_b = [str(str_a[i][0]).upper() for i in range(len(str_a))]
-    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "").replace("《", "").replace("》", "").replace("〈", "").replace("〉", "")
+    return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "").replace("《", "").replace("》", "").replace("〈", "").replace("〉", "").replace("(", "").replace(")", "").replace("<", "").replace(">", "").replace("\"", "")
 
 # 定义 PlexServer 类
 class PlexServer:
@@ -98,31 +98,33 @@ class PlexServer:
         return libraries
 
     # 列出所有媒体键
-    def list_media_keys(self, select):
+    def list_media_keys(self, select, print_counts=True):
         response = self.s.get(url=f'{self.host}/library/sections/{select[0]}/all?type={select[1]}').json()
         datas = response.get("MediaContainer", {}).get("Metadata", [])
     
         if not datas:
-            if select[1] == 8:
-                print_with_timestamp("艺人数：0")
-            elif select[1] == 9:
-                print_with_timestamp("专辑数：0")
-            elif select[1] == 10:
-                print_with_timestamp("曲目数：0")
-            else:
-                print_with_timestamp("项目数：0")
+            if print_counts:
+                if select[1] == 8:
+                    print_with_timestamp("艺人数：0")
+                elif select[1] == 9:
+                    print_with_timestamp("专辑数：0")
+                elif select[1] == 10:
+                    print_with_timestamp("曲目数：0")
+                else:
+                    print_with_timestamp("项目数：0")
             return []
     
         media_keys = [data["ratingKey"] for data in datas]
     
-        if select[1] == 8:
-            print_with_timestamp(f"艺人数：{len(media_keys)}")
-        elif select[1] == 9:
-            print_with_timestamp(f"专辑数：{len(media_keys)}")
-        elif select[1] == 10:
-            print_with_timestamp(f"曲目数：{len(media_keys)}")
-        else:
-            print_with_timestamp(f"项目数：{len(media_keys)}")
+        if print_counts:
+            if select[1] == 8:
+                print_with_timestamp(f"艺人数：{len(media_keys)}")
+            elif select[1] == 9:
+                print_with_timestamp(f"专辑数：{len(media_keys)}")
+            elif select[1] == 10:
+                print_with_timestamp(f"曲目数：{len(media_keys)}")
+            else:
+                print_with_timestamp(f"项目数：{len(media_keys)}")
     
         return media_keys
 
@@ -327,22 +329,22 @@ class PlexServer:
                 if ll[1] == 8:
     
                     # 处理艺人
-                    artist_keys = self.list_media_keys([select[0], 8])
+                    artist_keys = self.list_media_keys([select[0], 8], print_counts=True)
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_artist, [(select, key) for key in artist_keys])
     
                     # 处理专辑
-                    album_keys = self.list_media_keys([select[0], 9])
+                    album_keys = self.list_media_keys([select[0], 9], print_counts=True)
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_album, [(select, key) for key in album_keys])
     
                     # 处理曲目
-                    track_keys = self.list_media_keys([select[0], 10])
+                    track_keys = self.list_media_keys([select[0], 10], print_counts=True)
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_track, [(select, key) for key in track_keys])
     
                 else:
-                    media_keys = self.list_media_keys(select)
+                    media_keys = self.list_media_keys(select, print_counts=True)
     
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         executor.map(self.process_item, [(select, key) for key in media_keys])
@@ -432,8 +434,18 @@ class PlexServer:
         # 根据项目类型处理项目
         if library_type == TYPE['artist']:
             self.process_artist(([library_section_id, library_type], rating_key))
+            # 获取并处理所有属于这个 artist 的 album 和 track
+            album_keys = self.list_media_keys([library_section_id, TYPE['album']], print_counts=False)
+            track_keys = self.list_media_keys([library_section_id, TYPE['track']], print_counts=False)
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                executor.map(self.process_album, [([library_section_id, library_type], key) for key in album_keys])
+                executor.map(self.process_track, [([library_section_id, library_type], key) for key in track_keys])
         elif library_type == TYPE['album']:
             self.process_album(([library_section_id, library_type], rating_key))
+            # 获取并处理所有属于这个 album 的 track
+            track_keys = self.list_media_keys([library_section_id, TYPE['track']], print_counts=False)
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                executor.map(self.process_track, [([library_section_id, library_type], key) for key in track_keys])
         elif library_type == TYPE['track']:
             self.process_track(([library_section_id, library_type], rating_key))
         else:
