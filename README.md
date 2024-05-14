@@ -25,7 +25,7 @@
 ![标签汉化](https://github.com/x1ao4/plex-localization-zh/assets/112841659/5d08bd70-c3eb-4c9c-8769-fc258091c362)
 
 ## 功能
-通过 plex-localization-zh 可以实现以下功能。
+使用 plex-localization-zh 可以实现以下功能。
 
 - 电影、电视节目、艺人、专辑、曲目、合集的拼音排序和拼音搜索
 - 电影、电视节目、艺人、专辑、曲目的类型标签汉化
