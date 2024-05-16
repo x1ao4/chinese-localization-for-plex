@@ -1,5 +1,9 @@
 @echo off
 
-python3 D:\path\to\plex-localization-zh.py --new
+set DIR=%~dp0
+
+cd /d %DIR%
+
+python3 plex-localization-zh.py --new
 
 pause
