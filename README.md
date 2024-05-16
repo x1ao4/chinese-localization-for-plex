@@ -166,9 +166,7 @@ skip_libraries = 云电影；云电视剧；演唱会
 6. 使用命令 `python3 plex-localization-zh.py --new` 可运行 `处理新增项目` 任务，脚本将创建一个 Flask 服务器来监听 Plex 服务器的事件，当 Plex 服务器上有新增项目时，脚本将自动对新增项目进行处理，并在控制台显示处理结果，处理完毕后会继续监听 Plex 服务器的事件，并在每次有新增项目时对其进行处理，然后继续监听。
 
 #### 快速启动
-PC 用户可以通过 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快速启动 `处理所有项目` 任务；通过 `plz-new.bat (Win)` 或 `plz-new.command (Mac)` 脚本快速启动 `处理新增项目` 任务。
-
-请在首次运行前将快速启动脚本中的 `D:\path\to\plex-localization-zh.py` 或 `/path/to/plex-localization-zh.py` 替换为 `plex-localization-zh.py` 脚本的实际路径。
+PC 用户可以通过双击运行 `plz-all.bat (Win)` 或 `plz-all.command (Mac)` 脚本快速启动 `处理所有项目` 任务；通过双击运行 `plz-new.bat (Win)` 或 `plz-new.command (Mac)` 脚本快速启动 `处理新增项目` 任务。
 
 #### 自动运行
 为了便于使用，你也可以通过 crontab 或其他任务工具，为 plex-localization-zh 添加定时或开机任务，实现自动运行。
