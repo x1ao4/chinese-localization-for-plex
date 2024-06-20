@@ -4,4 +4,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 cd "$DIR"
 
-python3 ./plex-localization-zh.py --all
+python3 ./chinese-localization-for-plex.py --new

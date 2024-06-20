@@ -16,4 +16,4 @@ RUN chmod +x /start.sh
 
 # 设置容器的启动命令
 ENTRYPOINT ["/start.sh"]
-CMD ["python", "plex-localization-zh.py"]
+CMD ["python", "chinese-localization-for-plex.py"]
