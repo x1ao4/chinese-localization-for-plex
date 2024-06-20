@@ -143,7 +143,7 @@ skip_libraries = 云电影；云电视剧；演唱会
 7. 重启 chinese-localization-for-plex 堆栈即可正常运行。
 
 #### 运行说明
-堆栈 chinese-localization-for-plex 包含了 `clp-scheduler`、`clp-all` 和 `clp-new` 三个容器，分别用于处理不同的任务。启动堆栈后，这三个容器的运行状态也略有差异。
+堆栈 chinese-localization-for-plex 包含了 `clp-all`、`clp-new` 和 `clp-scheduler` 三个容器，分别用于处理不同的任务。启动堆栈后，这三个容器的运行状态也略有差异。
 
 - 容器 `clp-all` 是用来运行 `处理所有项目` 任务的，它会在启动后运行一次 `处理所有项目` 任务，对设置范围内的所有项目进行处理，并在终端或日志内显示资料库的信息和处理结果，处理完毕后会停止运行。你可以随时启动它来运行 `处理所有项目` 任务，它将在每次处理完毕后停止运行。如果你配置了 `clp-scheduler`，`clp-all` 也会在每次到达你设置的任务时间时自动运行一次。
 - 容器 `clp-new` 是用来运行 `处理新增项目` 任务的，它会在启动后创建一个 Flask 服务器来监听 Plex 服务器的事件，当 Plex 服务器上有新增项目时，它将自动对新增项目进行处理，并在终端或日志内显示处理结果，处理完毕后会继续监听 Plex 服务器的事件，并在每次有新增项目时对其进行处理，然后继续监听。
@@ -166,7 +166,10 @@ skip_libraries = 云电影；云电视剧；演唱会
 6. 使用命令 `python3 chinese-localization-for-plex.py --new` 可运行 `处理新增项目` 任务，脚本将创建一个 Flask 服务器来监听 Plex 服务器的事件，当 Plex 服务器上有新增项目时，脚本将自动对新增项目进行处理，并在控制台显示处理结果，处理完毕后会继续监听 Plex 服务器的事件，并在每次有新增项目时对其进行处理，然后继续监听。
 
 #### 快速启动
-PC 用户可以通过双击运行 `clp-all.bat (Win)` 或 `clp-all.command (Mac)` 脚本快速启动 `处理所有项目` 任务；通过双击运行 `clp-new.bat (Win)` 或 `clp-new.command (Mac)` 脚本快速启动 `处理新增项目` 任务。
+PC 用户也可以通过提供的快速启动脚本来执行任务：
+
+- 双击 `clp-all.bat (Win)` 或 `clp-all.command (Mac)` 脚本可以快速启动 `处理所有项目` 任务。
+- 双击 `clp-new.bat (Win)` 或 `clp-new.command (Mac)` 脚本可以快速启动 `处理新增项目` 任务。
 
 #### 自动运行
 为了便于使用，你也可以通过 crontab 或其他任务工具，为 CLP 添加定时或开机任务，实现自动运行。
