@@ -1,4 +1,4 @@
-# plex-localization-zh
+# Chinese Localization for Plex
 使用 plex-localization-zh 可以对 Plex 服务器项目的部分元数据进行中文本地化。它可以通过与 Plex 服务器进行交互，获取媒体库中的电影、电视节目、艺人、专辑、曲目和合集的元数据，将项目的标题排序修改为项目标题的拼音首字母缩写，并获取项目的类型、氛围或风格等标签，将英文标签进行汉化。从而实现 Plex 媒体库的拼音排序、拼音搜索以及标签汉化功能。
 
 ## 示例
@@ -11,7 +11,7 @@
 ```
 标题/艺人/专辑排序只影响排列顺序，不影响显示效果，项目在 Plex 中依然会以中文标题进行显示，但是在使用标题/艺人/专辑排序时会根据拼音首字母缩写进行排序，并且可以通过拼音首字母缩写进行搜索，包括模糊搜索。
 
-![标题排序](https://github.com/x1ao4/plex-localization-zh/assets/112841659/6831658a-1a89-4e4b-b360-cf4192f96497)
+![标题排序](https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/5f1f45fe-bac0-41cb-b864-f0c7b5830884)
 
 通过 plex-localization-zh 还可以自动将项目的标签从英文转换为中文，例如：
 ```
@@ -22,7 +22,7 @@
 ```
 `/config/tags.json` 中已经预置了一些常用标签的中英翻译，主要是影视类型标签，若有其他标签需要汉化可以自己在 `tags.json` 中添加中英翻译（标签映射），注意保持格式与预设一致。
 
-![标签汉化](https://github.com/x1ao4/plex-localization-zh/assets/112841659/5d08bd70-c3eb-4c9c-8769-fc258091c362)
+![标签汉化](https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/dbc37928-6f6c-4552-9cf2-242cb08e31c4)
 
 ## 功能
 使用 plex-localization-zh 可以实现以下功能。
@@ -213,4 +213,4 @@ PC 用户可以通过双击运行 `plz-all.bat (Win)` 或 `plz-all.command (Mac)
 ## 赞赏
 如果你觉得这个项目对你有用，可以请我喝杯咖啡。如果你喜欢这个项目，可以给我一个⭐️。谢谢你的支持！
 
-<img width="399" alt="赞赏" src="https://github.com/x1ao4/plex-mpv/assets/112841659/2eed25d0-d98f-4ffd-962e-aefec171b458">
+<img width="399" alt="赞赏" src="https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/b7b19cde-9412-4ab3-acc3-c932a4a03f3b">
