@@ -210,6 +210,7 @@ PC 用户也可以通过提供的快速启动脚本来执行任务：
 - 所有被处理的字段将在变更后被锁定，以防止在刷新元数据时被重置。若有修改需求，可以手动解锁对应的字段，然后进行修改。
 - 修改配置文件后，需要重启容器，新的配置信息才会生效。
 - Windows 用户运行 Python 脚本后，若没有任何反应，请将运行命令或启动脚本中的 `python3` 替换为 `python` 再运行。
+- 如需使用 `处理新增项目` 模式，请确保你在服务器的 `设置 - 网络` 中勾选了 `Webhooks` 选项。
 
 ## 感谢
 本工具参考 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn) 和 [plexpy](https://github.com/anooki-c/plexpy) 对代码进行了重构、更新和完善，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx) 和 [anooki-c](https://github.com/anooki-c) 贡献代码。
