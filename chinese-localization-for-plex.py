@@ -84,7 +84,7 @@ class PlexServer:
             return friendly_name
         except Exception as e:
             print_with_timestamp(e)
-            print_with_timestamp("服务器连接失败，请检查配置文件的设置是否有误，如需帮助，请访问 https://github.com/x1ao4/plex-localization-zh 查看使用说明\n")
+            print_with_timestamp("服务器连接失败，请检查配置文件或网络的设置是否有误。如需帮助，请访问 https://github.com/x1ao4/chinese-localization-for-plex 查看使用说明。\n")
             time.sleep(10)
             return sys.exit()
 
