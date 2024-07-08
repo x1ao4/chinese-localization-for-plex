@@ -218,4 +218,4 @@ PC 用户也可以通过提供的快速启动脚本来执行任务：
 ## 赞赏
 如果你觉得这个项目对你有用，可以请我喝杯咖啡。如果你喜欢这个项目，可以给我一个⭐️。谢谢你的支持！
 
-<img width="399" alt="赞赏" src="https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/b7b19cde-9412-4ab3-acc3-c932a4a03f3b">
+<img width="399" alt="赞赏" src="https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/7e53487b-0acd-4871-a4ae-dca664429fb0">
