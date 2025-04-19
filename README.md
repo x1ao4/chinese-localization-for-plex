@@ -40,7 +40,7 @@
 由于 Plex 服务器不支持发送新增曲目的事件通知（支持发送新增专辑或艺人的事件通知）。在你向音乐资料库添加曲目时，若该曲目所属的专辑已经存在于资料库中，那么 CLP 将不会收到任何通知，`处理新增项目` 也就不会对其进行处理。你可以通过（定时）运行 `处理所有项目` 来解决这些漏网之鱼。
 
 ## 配置说明
-在使用 CLP 前，请先参考以下提示（示例）对 `/config/config.ini` 进行配置。
+运行前，请先参考以下提示（示例）对 `/config/config.ini` 进行配置。
 ```
 [server]
 # Plex 服务器的地址，格式为 http://服务器 IP 地址:32400 或 http(s)://域名:端口号
@@ -216,6 +216,6 @@ PC 用户也可以通过提供的快速启动脚本来执行任务：
 本工具参考 [plex_localization_zhcn](https://github.com/sqkkyzx/plex_localization_zhcn) 和 [plexpy](https://github.com/anooki-c/plexpy) 对代码进行了重构、更新和完善，感谢 [timmy0209](https://github.com/timmy0209)、[sqkkyzx](https://github.com/sqkkyzx) 和 [anooki-c](https://github.com/anooki-c) 贡献代码。
 
 ## 赞赏
-如果你觉得这个项目对你有用，可以请我喝杯咖啡。如果你喜欢这个项目，可以给我一个⭐️。谢谢你的支持！
+如果你觉得这个项目对你有用，可以考虑请我喝杯咖啡或者给我一个⭐️。谢谢你的支持！
 
-<img width="399" alt="赞赏" src="https://github.com/x1ao4/chinese-localization-for-plex/assets/112841659/7e53487b-0acd-4871-a4ae-dca664429fb0">
+<img width="383" alt="赞赏" src="https://github.com/user-attachments/assets/bdd2226b-6282-439d-be92-5311b6e9d29c">
