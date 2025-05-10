@@ -58,7 +58,18 @@ def is_english(s):
 
 # 将中文字符串转换为拼音
 def convert_to_pinyin(text):
-    str_a = pypinyin.pinyin(text, style=pypinyin.FIRST_LETTER)
+    # 读取拼音模式配置
+    pinyin_mode = 'first_letter'
+    if config.has_section('pinyin') and config.has_option('pinyin', 'mode'):
+        pinyin_mode = config.get('pinyin', 'mode')
+    
+    # 根据配置选择拼音模式
+    if pinyin_mode == 'full_spell':
+        style = pypinyin.NORMAL
+    else:
+        style = pypinyin.FIRST_LETTER
+    
+    str_a = pypinyin.pinyin(text, style=style)
     str_b = [str(str_a[i][0]).upper() for i in range(len(str_a))]
     return ''.join(str_b).replace("：", "").replace("（", "").replace("）", "").replace("，", "").replace("！", "").replace("？", "").replace("。", "").replace("；", "").replace("·", "").replace("-", "").replace("／", "").replace(",", "").replace("…", "").replace("!", "").replace("?", "").replace(".", "").replace(":", "").replace(";", "").replace("～", "").replace("~", "").replace("・", "").replace("“", "").replace("”", "").replace("《", "").replace("》", "").replace("〈", "").replace("〉", "").replace("(", "").replace(")", "").replace("<", "").replace(">", "").replace("\"", "")
 
